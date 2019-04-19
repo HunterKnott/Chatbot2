@@ -14,6 +14,7 @@ public class ChatPanel extends JPanel
 {
 	private ChatController appController;
 	private SpringLayout appLayout;
+	
 	private JButton chatButton;
 	private JButton checkerButton;
 	private JButton loadButton;
@@ -21,6 +22,15 @@ public class ChatPanel extends JPanel
 	private JButton resetButton;
 	private JButton tweetButton;
 	private JButton searchTwitterButton;
+	
+	private ImageIcon chatIcon;
+	private ImageIcon checkerIcon;
+	private ImageIcon loadIcon;
+	private ImageIcon saveIcon;
+	private ImageIcon resetIcon;
+	private ImageIcon tweetIcon;
+	private ImageIcon searchIcon;
+	
 	private JTextField chatField;
 	private JTextArea chatArea;
 	private JScrollPane chatPane;
@@ -33,18 +43,26 @@ public class ChatPanel extends JPanel
 		this.appController = appController;
 		appLayout = new SpringLayout();
 		
-		chatButton = new JButton("Chat");
-		loadButton = new JButton("Load");
-		saveButton = new JButton("Save");
+		chatIcon = new ImageIcon(getClass().getResource("/chat/view/images/chat.png"));
+		//checkerIcon = new ImageIcon(getClass().getResource("/chat/view/images/"));
+		loadIcon = new ImageIcon(getClass().getResource("/chat/view/images/load.png"));
+		saveIcon = new ImageIcon(getClass().getResource("/chat/view/images/save.png"));
+		resetIcon = new ImageIcon(getClass().getResource("chat/view/images/reset.png"));
+		tweetIcon = new ImageIcon(getClass().getResource("/chat/view/images/tweet.png"));
+		searchIcon = new ImageIcon(getClass().getResource("/chat/view/images/searchTwitter.png"));
+		
+		chatButton = new JButton("Chat", chatIcon);
+		loadButton = new JButton("Load", loadIcon);
+		saveButton = new JButton("Save", saveIcon);
 		checkerButton = new JButton("Check Text");
-		resetButton = new JButton("reset");
+		resetButton = new JButton("reset", resetIcon);
+		tweetButton = new JButton("Send Tweet", tweetIcon);
+		searchTwitterButton = new JButton("Search Twitter", searchIcon);
 		chatPane = new JScrollPane();
 		chatArea = new JTextArea("Chat Area", 20, 50);
 		//("Text", rows, columns)
 		chatPane.setViewportView(chatArea);
 		chatField = new JTextField("Talk to the bot here", 50);
-		tweetButton = new JButton("Send Tweet");
-		searchTwitterButton = new JButton("Search Twitter");
 		
 		buttonPanel = new JPanel(new GridLayout(1, 0));
 		appLayout.putConstraint(SpringLayout.NORTH, buttonPanel, 31, SpringLayout.SOUTH, chatField);
