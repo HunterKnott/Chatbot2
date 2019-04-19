@@ -47,12 +47,24 @@ public class ChatPanel extends JPanel
 		searchTwitterButton = new JButton("Search Twitter");
 		
 		buttonPanel = new JPanel(new GridLayout(1, 0));
+		appLayout.putConstraint(SpringLayout.NORTH, buttonPanel, 31, SpringLayout.SOUTH, chatField);
+		appLayout.putConstraint(SpringLayout.WEST, buttonPanel, 0, SpringLayout.WEST, chatPane);
 		
-		
+		setupButtonPanel();
 		setupScrollPane();
 		setupPanel();
 		setupLayout();
 		setupListeners();
+	}
+	
+	private void setupButtonPanel()
+	{
+		buttonPanel.add(saveButton);
+		buttonPanel.add(loadButton);
+		buttonPanel.add(chatButton);
+		buttonPanel.add(checkerButton);
+		buttonPanel.add(tweetButton);
+		buttonPanel.add(searchTwitterButton);
 	}
 	
 	private void setupPanel()
@@ -60,6 +72,9 @@ public class ChatPanel extends JPanel
 		this.setLayout(appLayout);
 		this.setPreferredSize(new Dimension(1024, 768));
 		this.setBackground(Color.GREEN);
+		buttonPanel.setPreferredSize(new Dimension(900, 150));
+		buttonPanel.setBackground(Color.BLUE);
+		this.add(buttonPanel);
 		this.add(chatPane);
 		this.add(chatField);
 	}
