@@ -1,5 +1,3 @@
-//_____________________________________________________________
-//-------------------------------------------------------------
 package chat.view;
 
 import javax.swing.*;
@@ -10,7 +8,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Dimension;
-//_____________________________________________________________
+
 public class ChatPanel extends JPanel
 {
 	private ChatController appController;
@@ -23,14 +21,14 @@ public class ChatPanel extends JPanel
 	private JTextField chatField;
 	private JTextArea chatArea;
 	private JScrollPane chatPane;
-	//_____________________________________________________________
+	
 	public ChatPanel(ChatController appController)
 	{
 		super();
-		//-------------------------------------------------------------
+		
 		this.appController = appController;
 		appLayout = new SpringLayout();
-		//-------------------------------------------------------------
+		
 		chatButton = new JButton("Chat");
 		loadButton = new JButton("Load");
 		saveButton = new JButton("Save");
@@ -42,17 +40,17 @@ public class ChatPanel extends JPanel
 		chatPane.setViewportView(chatArea);
 		chatField = new JTextField("Talk to the bot here", 50);
 		
-		//-------------------------------------------------------------
+		
 		setupScrollPane();
 		setupPanel();
 		setupLayout();
 		setupListeners();
 	}
-	//_____________________________________________________________
+	
 	private void setupPanel()
 	{
 		this.setLayout(appLayout);
-		this.setPreferredSize(new Dimension(800, 600));
+		this.setPreferredSize(new Dimension(1024, 768));
 		this.setBackground(Color.GREEN);
 		this.add(chatButton);
 		this.add(loadButton);
@@ -62,7 +60,7 @@ public class ChatPanel extends JPanel
 		this.add(resetButton);
 		this.add(chatField);
 	}
-	//_____________________________________________________________
+	
 	private void setupLayout()
 	{
 		appLayout.putConstraint(SpringLayout.SOUTH, chatButton, -267, SpringLayout.SOUTH, this);
@@ -91,7 +89,7 @@ public class ChatPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.NORTH, chatField, 6, SpringLayout.SOUTH, chatPane);
 		appLayout.putConstraint(SpringLayout.WEST, chatField, 10, SpringLayout.WEST, chatPane);
 	}
-	//_____________________________________________________________
+	
 	private void setupListeners()
 	{
 		chatButton.addActionListener(new ActionListener()
@@ -106,7 +104,7 @@ public class ChatPanel extends JPanel
 				chatArea.setCaretPosition(chatArea.getDocument().getLength());
 			}
 		});
-		//-------------------------------------------------------------
+		
 		loadButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
@@ -116,7 +114,7 @@ public class ChatPanel extends JPanel
 				chatArea.setText(chatText);
 			}
 		});
-		//-------------------------------------------------------------
+		
 		saveButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
@@ -127,7 +125,7 @@ public class ChatPanel extends JPanel
 				chatArea.setText("Chat saved!");
 			}
 		});
-		//-------------------------------------------------------------
+		
 		checkerButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
@@ -135,7 +133,7 @@ public class ChatPanel extends JPanel
 				
 			}
 		});
-		//-------------------------------------------------------------
+		
 		resetButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
@@ -144,7 +142,7 @@ public class ChatPanel extends JPanel
 			}
 		});
 	}
-	//_____________________________________________________________
+	
 	private void setupScrollPane()
 	{
 		chatArea.setEditable(false);
@@ -154,7 +152,7 @@ public class ChatPanel extends JPanel
 		chatPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		chatPane.setViewportView(chatArea);
 	}
-	//_____________________________________________________________
+	
 	private String getPath(String choice)
 	{
 		String path = ".";
