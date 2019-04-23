@@ -3,7 +3,7 @@ package chat.view;
 import javax.swing.*;
 import chat.controller.ChatController;
 import chat.controller.IOController;
-//-------------------------------------------------------------
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
@@ -44,10 +44,10 @@ public class ChatPanel extends JPanel
 		appLayout = new SpringLayout();
 		
 		chatIcon = new ImageIcon(getClass().getResource("/chat/view/images/chat.png"));
-		//checkerIcon = new ImageIcon(getClass().getResource("/chat/view/images/"));
+		//checkerIcon = new ImageIcon(getClass().getResource("/chat/view/images/checker.png"));
 		loadIcon = new ImageIcon(getClass().getResource("/chat/view/images/load.png"));
 		saveIcon = new ImageIcon(getClass().getResource("/chat/view/images/save.png"));
-		resetIcon = new ImageIcon(getClass().getResource("chat/view/images/reset.png"));
+		//resetIcon = new ImageIcon(getClass().getResource("chat/view/images/reset.png"));
 		tweetIcon = new ImageIcon(getClass().getResource("/chat/view/images/tweet.png"));
 		searchIcon = new ImageIcon(getClass().getResource("/chat/view/images/searchTwitter.png"));
 		
