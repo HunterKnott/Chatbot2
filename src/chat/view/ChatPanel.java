@@ -44,7 +44,7 @@ public class ChatPanel extends JPanel
 		appLayout = new SpringLayout();
 		
 		chatIcon = new ImageIcon(getClass().getResource("/chat/view/images/chat.png"));
-		//checkerIcon = new ImageIcon(getClass().getResource("/chat/view/images/checker.png"));
+		checkerIcon = new ImageIcon(getClass().getResource("/chat/view/images/chat.png"));
 		loadIcon = new ImageIcon(getClass().getResource("/chat/view/images/load.png"));
 		saveIcon = new ImageIcon(getClass().getResource("/chat/view/images/save.png"));
 		//resetIcon = new ImageIcon(getClass().getResource("chat/view/images/reset.png"));
@@ -54,7 +54,7 @@ public class ChatPanel extends JPanel
 		chatButton = new JButton("Chat", chatIcon);
 		loadButton = new JButton("Load", loadIcon);
 		saveButton = new JButton("Save", saveIcon);
-		checkerButton = new JButton("Check Text");
+		checkerButton = new JButton("Check Text", chatIcon);
 		resetButton = new JButton("reset", resetIcon);
 		tweetButton = new JButton("Send Tweet", tweetIcon);
 		searchTwitterButton = new JButton("Search Twitter", searchIcon);
