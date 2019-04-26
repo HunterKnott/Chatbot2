@@ -54,4 +54,9 @@ public class ChatTwitter
 			app.handleErrors(otherError);
 		}
 	}
+	
+	private void collectTweets(String username)
+	{
+		
+	}
 }
