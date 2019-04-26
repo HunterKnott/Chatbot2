@@ -33,5 +33,9 @@ public class ChatTwitter
 	{
 		this.app = app;
 		this.chatTwitter = TwitterFactory.getSingleton();
+		this.searchedTweets = new ArrayList<Status>();
+		this.tweetedWords = new ArrayList<String>();
+		this.wordsAndCount = new HashMap<String, Integer>();
+		this.totalWordCount = 0;
 	}
 }
