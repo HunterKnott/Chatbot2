@@ -24,6 +24,10 @@ public class ChatTwitter
 {
 	private ChatController app;
 	private Twitter chatTwitter;
+	private List<Status> searchedTweets;
+	private List<String> tweetedWords;
+	private long totalWordCount;
+	private HashMap<String, Integer> wordsAndCount;
 	
 	public ChatTwitter(ChatController app)
 	{
