@@ -38,4 +38,20 @@ public class ChatTwitter
 		this.wordsAndCount = new HashMap<String, Integer>();
 		this.totalWordCount = 0;
 	}
+	
+	public void sendTweet(String textToTweet)
+	{
+		try
+		{
+			chatTwitter.updateStatus(textToTweet + " @ChatbotCTEC");
+		}
+		catch(TwitterException tweetError)
+		{
+			app.handleErrors(tweetError);
+		}
+		catch(Exception otherError)
+		{
+			app.handleErrors(otherError);
+		}
+	}
 }
