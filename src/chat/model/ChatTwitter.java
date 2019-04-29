@@ -57,7 +57,7 @@ public class ChatTwitter
 		}
 	}
 	
-	/*private void collectTweets(String username)
+	private void collectTweets(String username)
 	{
 		Paging statusPage = new Paging(1, 100);
 		int page = 1;
@@ -102,6 +102,16 @@ public class ChatTwitter
 	
 	private String removePunctuation(String currentString)
 	{
+		String punctuation = ".,'?!:;\"() {}^[]<>-";
 		
-	}*/
+		String scrubbedString = "";
+		for(int i = 0; i < currentString.length(); i++)
+		{
+			if(punctuation.indexOf(currentString.charAt(i)) == -1)
+			{
+				scrubbedString += currentString.charAt(i);
+			}
+		}
+		return scrubbedString;
+	}
 }
