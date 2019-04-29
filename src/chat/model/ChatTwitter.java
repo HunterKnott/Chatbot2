@@ -24,6 +24,7 @@ public class ChatTwitter
 {
 	private ChatController app;
 	private Twitter chatTwitter;
+	private String tweetEnd;
 	private List<Status> searchedTweets;
 	private List<String> tweetedWords;
 	private long totalWordCount;
@@ -33,6 +34,7 @@ public class ChatTwitter
 	{
 		this.app = app;
 		this.chatTwitter = TwitterFactory.getSingleton();
+		this.tweetEnd = "@HunterKnott, @CSCheerleader, @CTECNOW, @ChatbotCTEC";
 		this.searchedTweets = new ArrayList<Status>();
 		this.tweetedWords = new ArrayList<String>();
 		this.wordsAndCount = new HashMap<String, Integer>();
@@ -69,9 +71,18 @@ public class ChatTwitter
 				ResponseList<Status> listedTweets = chatTwitter.getUserTimeline(username, statusPage);
 				for(Status current : listedTweets)
 				{
-					
+					if(current.getID() < lastID)
+					{
+						searchedTweets.add(current);
+						lastID = current.getId();
+					}
 				}
 			}
+			catch(TwitterException searchTweetError)
+			{
+				app.handleErrors(searchTweetError);
+			}
+			page++;
 		}
 	}
 }
