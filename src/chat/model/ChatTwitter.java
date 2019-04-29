@@ -71,7 +71,7 @@ public class ChatTwitter
 				ResponseList<Status> listedTweets = chatTwitter.getUserTimeline(username, statusPage);
 				for(Status current : listedTweets)
 				{
-					if(current.getID() < lastID)
+					if(current.getId() < lastID)
 					{
 						searchedTweets.add(current);
 						lastID = current.getId();
@@ -86,7 +86,7 @@ public class ChatTwitter
 		}
 	}
 	
-	private void turnStatusToWords()
+	private void turnStatusesToWords()
 	{
 		for(Status currentStatus : searchedTweets)
 		{
@@ -95,7 +95,7 @@ public class ChatTwitter
 			String [] tweetWords = tweetText.split(" ");
 			for(int index = 0; index < tweetWords.length; index++)
 			{
-				tweetWords.add(removePunctuation(tweetWords[index]).trim());
+				tweetedWords.add(removePunctuation(tweetWords[index]).trim());
 			}
 		}
 	}
@@ -129,7 +129,7 @@ public class ChatTwitter
 	private String [] createIgnoredWordArray()
 	{
 		String [] boringWords;
-		String fileText = IOController.loadFromFile(app, "commonWords.txt");
+		String fileText = IOController.loadFile(app, "commonWords.txt");
 		int wordCount = 0;
 		
 		Scanner wordScanner = new Scanner(fileText);
@@ -142,6 +142,17 @@ public class ChatTwitter
 		
 		boringWords = new String[wordCount];
 		wordScanner.close();
+		
+		//Alternative file loading method
+		
+		wordScanner = new Scanner(this.getClass().getResourceAsStream("data/commonWords.txt"));
+		for(int index = 0; index < boringWords.length; index++)
+		{
+			boringWords[index] = wordScanner.nextLine();
+		}
+		
+		wordScanner.close();
+		return boringWords;
 	}
 	
 	private void trimTheBoringWords(String [] boringWords)
