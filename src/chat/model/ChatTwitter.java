@@ -182,4 +182,39 @@ public class ChatTwitter
 		
 		return entries;
 	}
+	
+	private String sortedWords()
+	{
+		String allWords = "";
+		String [] words = new String[wordsAndCount.size()];
+		ArrayList<String> wordList = new ArrayList<String>(wordsAndCount.keySet());
+		
+		for(int index = 0; index < wordsAndCount.size(); index++)
+		{
+			words[index] = wordList.get(index);
+		}
+		for(int index = 0; index < words.length - 1; index ++)
+		{
+			int maxIndex = index;
+			
+			for(int inner = index + 1; inner < words.length; inner++)
+			{
+				if(words[inner].compareTo(words[maxIndex]) > 0)
+				{
+					maxIndex = inner;
+				}
+			}
+			
+			String tempMax = words[maxIndex];
+			words[maxIndex] = words[index];
+			words[index] = tempMax;
+		}
+		
+		for(String word : words)
+		{
+			allWords += word + ", ";
+		}
+		
+		return allWords;
+	}
 }
