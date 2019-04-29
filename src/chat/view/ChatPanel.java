@@ -164,6 +164,15 @@ public class ChatPanel extends JPanel
 				
 			}
 		});
+		
+		tweetButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent tweetClick)
+			{
+				String textToTweet = chatField.getText().trim();
+				appController.tweet(textToTweet);
+			}
+		});
 	}
 	
 	private void setupScrollPane()

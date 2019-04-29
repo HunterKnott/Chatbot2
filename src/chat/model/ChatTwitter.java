@@ -85,4 +85,18 @@ public class ChatTwitter
 			page++;
 		}
 	}
+	
+	private void turnStatusToWords()
+	{
+		for(Status currentStatus : searchedTweets)
+		{
+			String tweetText = currentStatus.getText().toLowerCase();
+			tweetText = tweetText.replace("\n", " ");
+			String [] tweetWords = tweetText.split(" ");
+			for(int index = 0; index < tweetWords.length; index++)
+			{
+				tweetWords.add(removePunctuation(tweetWords[index]).trim());
+			}
+		}
+	}
 }
