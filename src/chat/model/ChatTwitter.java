@@ -57,6 +57,21 @@ public class ChatTwitter
 	
 	private void collectTweets(String username)
 	{
+		Paging statusPage = new Paging(1, 100);
+		int page = 1;
+		long lastID = Long.MAX_VALUE;
 		
+		while(page <= 10)
+		{
+			statusPage.setPage(page);
+			try
+			{
+				ResponseList<Status> listedTweets = chatTwitter.getUserTimeline(username, statusPage);
+				for(Status current : listedTweets)
+				{
+					
+				}
+			}
+		}
 	}
 }
