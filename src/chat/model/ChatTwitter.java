@@ -143,4 +143,19 @@ public class ChatTwitter
 		boringWords = new String[wordCount];
 		wordScanner.close();
 	}
+	
+	private void trimTheBoringWords(String [] boringWords)
+	{
+		for(int index = tweetedWords.size() - 1; index >= 0; index--)
+		{
+			for(int removeIndex = 0; removeIndex < boringWords.length; removeIndex++)
+			{
+				if(tweetedWords.get(index).equalsIgnoreCase(boringWords[removeIndex]))
+				{
+					tweetedWords.remove(index);
+					removeIndex = boringWords.length;
+				}
+			}
+		}
+	}
 }
