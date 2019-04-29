@@ -57,7 +57,7 @@ public class ChatTwitter
 		}
 	}
 	
-	private void collectTweets(String username)
+	/*private void collectTweets(String username)
 	{
 		Paging statusPage = new Paging(1, 100);
 		int page = 1;
@@ -99,4 +99,9 @@ public class ChatTwitter
 			}
 		}
 	}
+	
+	private String removePunctuation(String currentString)
+	{
+		
+	}*/
 }
