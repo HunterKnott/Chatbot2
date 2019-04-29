@@ -217,4 +217,34 @@ public class ChatTwitter
 		
 		return allWords;
 	}
+	
+	public String getMostCommonWord(String username)
+	{
+		String mostCommon = "";
+		
+		collectTweets(username);
+		turnStatusesToWords();
+		totalWordCount = tweetedWords.size();
+		String [] boring = createIgnoredWordArray();
+		removeBlanks();
+		trimTheBoringWords(boring);
+		generateWordCount();
+		
+		ArrayList<Map.Entry<String, Integer>> sorted = sortHashMap();
+		String mostCommonWord = sorted.get(0).getKey();
+		int maxWord = 0;
+		
+		maxWord = sorted.get(0).getValue();
+		
+		mostCommon = "The most common word in " + username + "'s " + searchedTweets.size() + " tweets is "
+				+ mostCommonWord + ", and it was used " + maxWord + " times.\nThis is "
+				+ (DecimalFormat.getPercentInstance().format(((double) maxWord) / totalWordCount))
+				+ " of total words: " + totalWordCount + " and is "
+				+ (DecimalFormat.getPercentInstance().format(((double) maxWord) / wordsAndCount.size()))
+				+ " of the unique words: " + wordsAndCount.size();
+		
+		mostCommon += "\n\n" + sortedWords();
+		
+		return mostCommon;
+	}
 }
